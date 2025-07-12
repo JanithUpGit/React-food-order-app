@@ -1,8 +1,10 @@
-export default function Button({children,textOnly,className, ...props}){
+export default function Button({ children, textOnly, className, ...props }) {
+  let cssClasses = textOnly ? "text-button" : "button";
+  cssClasses += " " + className;
 
-    const cssClasses = textOnly ? 'text-button':'button';
-    cssClasses += ' '+ className;
-
-
-    return <button className={cssClasses} >{children}</button>
+  return (
+    <button className={cssClasses} {...props}>
+      {children}
+    </button>
+  );
 }
